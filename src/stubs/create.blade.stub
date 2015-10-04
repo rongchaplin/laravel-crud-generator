@@ -1,23 +1,23 @@
-@extends('layouts.master')
+@extends('layouts.%%layout%%')
 
 @section('content')
 
     <h1>Create New %%crudNameSingularCap%%</h1>
     <hr/>
 
-    {!! Form::open(['url' => '%%crudName%%', 'class' => 'form-horizontal']) !!}
+    {!! Form::open(['url' => '%%crudName%%']) !!}
     
     %%formFieldsHtml%%
 
-    <div class="form-group">
-        <div class="col-sm-offset-3 col-sm-3">
-            {!! Form::submit('Create', ['class' => 'btn btn-primary form-control']) !!}
+    <div>
+        <div>
+            {!! Form::submit('Create') !!}
         </div>    
     </div>
     {!! Form::close() !!}
 
     @if ($errors->any())
-        <ul class="alert alert-danger">
+        <ul>
             @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>
             @endforeach

@@ -43,28 +43,23 @@ class CrudCommand extends Command
     {
 
         $name = ucwords(strtolower($this->argument('name')));
+        $fields = $this->argument('fields');
+        $layout = $this->option('layout');
 
-        if ($this->option('fields')) {
-            $fields = $this->option('fields');
-
-            $fillable_array = explode(',', $fields);
-            foreach ($fillable_array as $value) {
-                $data[] = preg_replace("/(.*?):(.*)/", "$1", trim($value));
-            }
-
-            $comma_separeted_str = implode("', '", $data);
-            $fillable = "['";
-            $fillable .= $comma_separeted_str;
-            $fillable .= "']";
-
-            $this->call('crud:controller', ['name' => $name . 'Controller', '--crud-name' => $name]);
-            $this->call('crud:model', ['name' => str_plural($name), '--fillable' => $fillable]);
-            $this->call('crud:migration', ['name' => str_plural(strtolower($name)), '--schema' => $fields]);
-            $this->call('crud:view', ['name' => $name, '--fields' => $fields]);
-        } else {
-            $this->call('make:controller', ['name' => $name . 'Controller']);
-            $this->call('make:model', ['name' => $name]);
+        $fillable_array = explode(',', $fields);
+        foreach ($fillable_array as $value) {
+            $data[] = preg_replace("/(.*?):(.*)/", "$1", trim($value));
         }
+
+        $comma_separeted_str = implode("', '", $data);
+        $fillable = "['";
+        $fillable .= $comma_separeted_str;
+        $fillable .= "']";
+
+        $this->call('crud:controller', ['name' => $name . 'Controller', '--crud-name' => $name]);
+        $this->call('crud:model', ['name' => str_plural($name), '--fillable' => $fillable]);
+        $this->call('crud:migration', ['name' => str_plural(strtolower($name)), '--schema' => $fields]);
+        $this->call('crud:view', ['name' => $name, 'fields' => $fields, '--layout' => $layout]);
 
         // Updating the Http/routes.php file
         $routeFile = app_path('Http/routes.php');
@@ -87,6 +82,7 @@ class CrudCommand extends Command
     {
         return [
             ['name', InputArgument::REQUIRED, 'Name of the Crud.'],
+            ['fields', InputArgument::REQUIRED, 'The fields of the form.'],
         ];
     }
 
@@ -99,8 +95,8 @@ class CrudCommand extends Command
     protected function getOptions()
     {
         return [
-            ['fields', null, InputOption::VALUE_OPTIONAL, 'Fields of form & model.', null],
             ['route', '-r', InputOption::VALUE_OPTIONAL, 'Do you want to add the crud route to routes.php file? yes/no', 'yes'],
+            ['layout', '-l', InputOption::VALUE_OPTIONAL, 'Which layout file do you want the views to extend?', 'master'],
         ];
     }
 
