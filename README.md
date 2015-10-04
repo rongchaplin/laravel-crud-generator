@@ -1,5 +1,5 @@
 # Laravel 5 CRUD Generator
-Laravel CRUD Generator
+Laravel CRUD Generator v. 1.1
 
 ### Requirements
     Laravel >=5.1
