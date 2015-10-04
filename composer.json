@@ -6,12 +6,17 @@
         "laravel",
         "crud",
         "crud generator"
-    ],    
+    ],
     "authors": [
         {
             "name": "Sohel Amin",
             "email": "sohelamincse@gmail.com",
             "homepage": "http://www.appzcoder.com"
+        },
+        {
+            "name": "Ronald Chaplin",
+            "email": "rchaplin@t73.biz",
+            "homepage": "http://t73.biz"
         }
     ],
     "require": {
@@ -21,9 +26,9 @@
     },
     "autoload": {
         "psr-4": {
-            "Appzcoder\\CrudGenerator\\": "src/"
+            "T73Biz\\CrudGenerator\\": "src/"
         }
     },
     "minimum-stability": "stable",
-    "prefer-stable": true    
+    "prefer-stable": true
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Appzcoder\CrudGenerator;
+namespace T73Biz\CrudGenerator;
 
 use File;
 use Illuminate\Console\Command;
