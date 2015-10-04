@@ -1,5 +1,5 @@
 # Laravel 5 CRUD Generator
-Laravel CRUD Generator
+Laravel CRUD Generator v. 1.1
 
 ### Requirements
     Laravel >=5.1
@@ -9,7 +9,7 @@ Laravel CRUD Generator
 
 1. Run 
     ```
-    composer require appzcoder/crud-generator
+    composer require t73biz/crud-generator
     ```
     
 2. Add service provider into **/config/app.php** file.
@@ -17,7 +17,7 @@ Laravel CRUD Generator
     'providers' => [
         ...
     
-        Appzcoder\CrudGenerator\CrudGeneratorServiceProvider::class,
+        T73Biz\CrudGenerator\CrudGeneratorServiceProvider::class,
     ],
     ```
     
@@ -47,7 +47,7 @@ Note: You should have configured database as well for this operation.
 #### Crud command:
 
 ```
-php artisan crud:generate Person --fields="name:string, email:string, phone:integer, message:text"
+php artisan crud:generate Person "name:string, email:string, phone:integer, message:text" --layout "main"
 ```
 
 -----------
@@ -77,7 +77,7 @@ php artisan crud:migration Person --schema="name:string, email:string, phone:int
 For view generator: 
 
 ```
-php artisan crud:view Person --fields="name:string, email:string, phone:integer, message:text"
+php artisan crud:view Person "name:string, email:string, phone:integer, message:text" --layout "main"
 ```
 
 By default, the generator will attempt to append the crud route to your *routes.php* file. If you don't want the route added, you can use the option ```--route=no```.
@@ -95,4 +95,7 @@ Route::resource('person', 'PersonController');
 
 ##Author
 
+[Ronald Chaplin](http://t73.biz)
+
 [Sohel Amin](http://www.sohelamin.com)
+

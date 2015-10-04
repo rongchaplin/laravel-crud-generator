@@ -1,6 +1,6 @@
 <?php
 
-namespace Appzcoder\CrudGenerator;
+namespace T73Biz\CrudGenerator;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -22,11 +22,11 @@ class CrudGeneratorServiceProvider extends ServiceProvider
     public function register()
     {
         $this->commands(
-            'Appzcoder\CrudGenerator\CrudCommand',
-            'Appzcoder\CrudGenerator\CrudControllerCommand',
-            'Appzcoder\CrudGenerator\CrudModelCommand',
-            'Appzcoder\CrudGenerator\CrudMigrationCommand',
-            'Appzcoder\CrudGenerator\CrudViewCommand'
+            'T73Biz\CrudGenerator\CrudCommand',
+            'T73Biz\CrudGenerator\CrudControllerCommand',
+            'T73Biz\CrudGenerator\CrudModelCommand',
+            'T73Biz\CrudGenerator\CrudMigrationCommand',
+            'T73Biz\CrudGenerator\CrudViewCommand'
         );
     }
 

@@ -1,13 +1,13 @@
-@extends('layouts.master')
+@extends('layouts.%%layout%%')
 
 @section('content')
 
     <h1>%%crudNameSingularCap%%</h1>
-    <div class="table-responsive">
-        <table class="table table-bordered table-striped table-hover">
+    <div>
+        <table>
             <thead>
                 <tr>
-                    <th>ID.</th> %%formHeadingHtml%%
+                    <th>Id</th> %%formHeadingHtml%%
                 </tr>
             </thead>
             <tbody>
