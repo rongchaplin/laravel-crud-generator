@@ -9,7 +9,7 @@ Laravel CRUD Generator v. 1.1
 
 1. Run 
     ```
-    composer require t73biz/crud-generator
+    composer require t73biz/laravel5-crud-generator
     ```
     
 2. Add service provider into **/config/app.php** file.
