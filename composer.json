@@ -29,8 +29,7 @@
     },
     "require": {
         "php": ">=5.5.9",
-        "laravel/framework": "5.2.x
-        "
+        "laravel/framework": "5.2.x"
     },
     "autoload": {
         "psr-4": {
@@ -46,6 +45,10 @@
         "branch-alias": {
             "dev-master": "1.x-dev"
         }
+    },
+    "config": {
+        "allow-plugins": {
+            "kylekatarnls/update-helper": true
+        }
     }
-
 }
